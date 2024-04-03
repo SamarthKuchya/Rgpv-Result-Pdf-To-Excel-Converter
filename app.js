@@ -1,6 +1,7 @@
 
 const Excel = require('exceljs');
 const fs = require('fs');
+// const v = require('f');
 const pdf = require('pdf-parse');
 const readline = require("readline-sync"); 
 
@@ -11,7 +12,7 @@ let files = Number(readline.question("enter total number of files"));
     const ws = wb.addWorksheet('My Sheet');
 // console.log(files)
 for (let i = 1; i <= files; i++) {
-let dataBuffer = fs.readFileSync('D:/pdf converter/test'+i+'.pdf');
+let dataBuffer = fs.readFileSync('D:/pdf to excel/Rgpv-Result-Pdf-To-Excel-Converter/test'+i+'.pdf');
  
   // console.log(i)
 pdf(dataBuffer).then(function(data) {
@@ -30,6 +31,7 @@ pdf(dataBuffer).then(function(data) {
     // console.log(data.text.slice(y+21,y+4)) 
     let result = (data.text.slice(p+4,x-9))
     console.log(result)
+    console.log(data.text.slice(x-9,x-5))
     // let sgpa = (data.text.slice(status+9,status+13))
     // let cgpa = (data.text.slice(status+13,status+17))
     // console.log(cgpa)
